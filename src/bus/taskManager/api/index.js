@@ -1,12 +1,19 @@
-import { tasks } from "../hooks/useTaskManager/tasks";
-
 export const api = {
     tasks: {
         getAll: async () => {
-            const response = await fetch('http://localhost:5000/tasks');
-            const tasks = await response.json();
-
-            return tasks;
+            return (await fetch('http://localhost:3000/tasks')).json();
+        },
+        switchStatus: async (id, isComplete) => {
+            return (await fetch(
+                `http://localhost:3000/tasks/${id}`,
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({'isComplete': isComplete}),
+                }
+            )).json();
         }
     }
 }

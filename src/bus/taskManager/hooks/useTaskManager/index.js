@@ -5,16 +5,13 @@ import { useEffect, useState } from 'react';
 import { api } from '../../api';
 
 // Other
-import { tasks as mockData } from './tasks.js';
 
 export const useTaskManager = () => {
     const [tasks, setTasks] = useState([]);
     
     useEffect(() => {
         (async () => {
-            const tasks = await api.tasks.getAll();
-
-            setTasks(tasks);
+            setTasks(await api.tasks.getAll());
         })();
     }, []);
 

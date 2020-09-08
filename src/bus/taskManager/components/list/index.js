@@ -9,13 +9,14 @@ export const List = ({ items }) => {
         {
             id, 
             title, 
-            isCompleted
+            isComplete
         }
     ) => (
         <Task 
             key={id}
+            taskId={id}
             label={title}
-            isCompleted={isCompleted}
+            isComplete={isComplete}
         />
     ))
 
