@@ -3,20 +3,17 @@ import React from 'react';
 import { Text } from '@fluentui/react';
 
 // Components
+import { Form } from './components/form';
 import { List } from './components/list';
 
-// Hooks
-import { useTaskManager } from './hooks/useTaskManager';
-
-export const TaskManager = () => {
-    const { tasks } = useTaskManager();
-
+export const TaskManager = ({ tasks, updateHandler }) => {
     return (
         <div>
             <Text variant="xLarge">
                 Task Manager
             </Text>
-            <List items={tasks} />
+            <Form updateHandler={updateHandler} />
+            <List items={tasks} updateHandler={updateHandler} />
         </div>
     );
 };

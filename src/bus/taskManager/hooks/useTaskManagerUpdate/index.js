@@ -6,5 +6,5 @@ import { api } from '../../api';
 // Other
 
 export const useTaskManagerUpdate = (taskId, isComplete) => {
-    api.tasks.switchStatus(taskId, isComplete);
+    return api.tasks.switchStatus(taskId, isComplete);
 };
