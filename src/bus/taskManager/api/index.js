@@ -1,10 +1,10 @@
 export const api = {
     tasks: {
         getAll: async () => {
-            return (await fetch('http://localhost:3000/tasks')).json();
+            return (await fetch('http://localhost:3000/tasks'));
         },
         switchStatus: async (id, isComplete) => {
-            return (await fetch(
+            return fetch(
                 `http://localhost:3000/tasks/update/${id}`,
                 {
                     method: 'POST',
@@ -13,7 +13,7 @@ export const api = {
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({'isComplete': isComplete}),
                 }
-            )).json();
+            );
         },
         create: async (title) => {
             return (await fetch(

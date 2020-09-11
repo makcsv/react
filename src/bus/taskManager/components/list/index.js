@@ -5,7 +5,10 @@ import { Text } from '@fluentui/react';
 // Elements
 import { Task } from '../../../../elements/task';
 
-export const List = ({ items, updateHandler }) => {
+export const List = ({ items/*, updateHandler*/ }) => {
+
+    console.log(items);
+
     const listJSX = items.map((
         {
             id,
@@ -18,7 +21,7 @@ export const List = ({ items, updateHandler }) => {
             taskId={id}
             label={title}
             isComplete={isComplete}
-            updateHandler={updateHandler}
+            // updateHandler={updateHandler}
         />
     ))
 

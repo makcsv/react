@@ -1,20 +1,18 @@
 import React from 'react';
-import { Text, initializeIcons } from '@fluentui/react';
+import { Provider } from 'react-redux';
+import { initializeIcons } from '@fluentui/react';
+
+import { store } from "./init/store";
 
 import { TaskManager } from './bus/taskManager';
-import {useTaskManager} from "./bus/taskManager/hooks/useTaskManager";
+import { useTaskManager } from "./bus/taskManager/hooks/useTaskManager";
 
 initializeIcons();
 
 export const App = () => {
-    const { tasks, updateHandler } = useTaskManager();
-
     return (
-        <>
-            <Text variant="mega">
-                App
-            </Text>
-            <TaskManager tasks={tasks} updateHandler={updateHandler} />
-        </>
+        <Provider store={store}>
+            <TaskManager />
+        </Provider>
     );
 }
